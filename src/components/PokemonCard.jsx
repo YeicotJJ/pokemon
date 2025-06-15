@@ -1,28 +1,29 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
-import React from 'react'
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import React from 'react';
 
-function PokemonCard() {
+function capitalize(word) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+function PokemonCard({ name, image }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 200 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
+          image={image}
+          alt={name}
+          sx={{ objectFit: 'contain', background: '#f2f2f2' }}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography gutterBottom variant="h6" component="div">
+            {capitalize(name)}
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
-  )
+  );
 }
 
-export default PokemonCard
+export default PokemonCard;
